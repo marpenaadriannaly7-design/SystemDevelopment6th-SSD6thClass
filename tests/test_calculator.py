@@ -3,7 +3,7 @@ Test suite for the Calculator class.
 """
 
 import pytest
-from calculator.calculator import Calculator, InvalidInputException
+from calculator.calculator import Calculator
 
 
 class TestAddition:
@@ -130,6 +130,3 @@ class TestDivision:
     def test_divide_positive_numbers(self):
         """Test dividing positive numbers."""
         # TODO: Implement
-
-
-
