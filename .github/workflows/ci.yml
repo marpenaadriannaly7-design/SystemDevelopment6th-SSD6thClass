@@ -21,8 +21,18 @@ jobs:
 
       - name: Install dependencies
         run: |
+          
+          pip install pytest pytest-cov
+
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run tests
         run: |
-          pytest || echo "No tests found"
+          pytest --cov=. --cov-report=xml --cov-report=term || echo "No tests found"
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+            name: coverage-report
+            path: coverage.xml
+            
